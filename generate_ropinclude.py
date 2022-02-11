@@ -25,9 +25,9 @@ def cmd(s):  # process the ropgadget_patternfinder call string
 # *************************************************************************************************************************************************************************
 # Run gadget list script
 printstr='ropgadget_patternfinder %s --script=%s/ropkit_ropgadget_script --baseaddr=0x100000 %s --patterntype=sha256' % (S1,S2,ROPKIT_PATTERNFINDER_BLACKLISTPARAM)
-cmd(printstr)
+r=subprocess.call(printstr)
 if r:
-	exit(r) #??? should we just give up here? dunno, but at least these gadgets are rarely absent
+	print("//WARNING: %s/ropkit_ropgadget_script exited due to a missed gadget.\n" % S2)
 
 
 # *************************************************************************************************************************************************************************
